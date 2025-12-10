@@ -8,7 +8,7 @@ void createListParent(HeaderParent &HP) {
 adrParent alokasiParent(infotype_penulis infoPenulis) {
     adrParent P = new ElmParent;
     P->info = infoPenulis;
-    P->next = NULL;
+    P->next = NULL; 
     P->prev = NULL;
     P->firstRelation = NULL;
     return P;
@@ -51,7 +51,7 @@ void tampilkanBukuPenulis(HeaderParent HP, infotype_penulis namaPenulis) {
     if (R == NULL) {
         cout << "Penulis ini belum menulis buku." << endl;
         return;
-    }
+    }   
 
     int i = 1;
     while (R != NULL) {

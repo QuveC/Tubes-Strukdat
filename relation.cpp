@@ -32,29 +32,29 @@ void deleteRelasi(adrParent P, string judulBuku) {
         return;
     }
 
-    adrRelation Curr = P->firstRelation;
+    adrRelation q = P->firstRelation;
 
-    while (Curr != NULL && Curr->BookRelation->info.judul != judulBuku) {
-        Curr = Curr->next;
+    while (q != NULL && q->BookRelation->info.judul != judulBuku) {
+        q = q->next;
     }
 
-    if (Curr == NULL) {
+    if (q == NULL) {
         cout << "Buku dengan judul " << judulBuku << " tidak ditemukan pada penulis " << P->info << "." << endl;
         return;
     }
 
-    if (Curr == P->firstRelation) {
-        P->firstRelation = Curr->next;
+    if (q == P->firstRelation) {
+        P->firstRelation = q->next;
         if (P->firstRelation != NULL) {
             P->firstRelation->prev = NULL;
         }
     } else {
-        Curr->prev->next = Curr->next;
-        if (Curr->next != NULL) {
-            Curr->next->prev = Curr->prev;
+        q->prev->next = q->next;
+        if (q->next != NULL) {
+            q->next->prev = q->prev;
         }
     }
 
-    delete Curr;
+    delete q;
     cout << "Relasi buku " << judulBuku << " berhasil dihapus dari penulis " << P->info << "." << endl;
 }

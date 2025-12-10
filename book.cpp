@@ -31,4 +31,19 @@ void insertLastChild(HeaderChild &HC, adrChild C) {
         HC.Last->next = C;
         HC.Last = C;
     }
+    
+}
+
+
+int countBook(HeaderChild HC){
+    int i;
+    adrChild P;
+    P = HC.first;
+    while (P != nullptr){
+        i++;
+        P = P->next;
+    }
+    return i;
+
+
 }
