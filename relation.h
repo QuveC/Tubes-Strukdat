@@ -1,5 +1,22 @@
-#ifndef RELATION_H
-#define RELATION_H
+#ifndef RELATION_H_INCLUDED
+#define RELATION_H_INCLUDED
 
+#include "BOOK.H"
+#include <iostream>
+using namespace std;
 
-#endif
+typedef struct ElmParent *adrParent;
+
+typedef struct ElmRelation *adrRelation;
+
+struct ElmRelation {
+    adrChild BookRelation;
+    adrRelation next;
+    adrRelation prev;
+};
+
+adrRelation alokasiRelation(adrChild C);
+void tambahRelasi(adrParent P, adrChild C);
+void deleteRelasi(adrParent P, string judulBuku);
+
+#endif // RELATION_H_INCLUDED
