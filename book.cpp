@@ -1,5 +1,6 @@
 #include "book.h"
 
+
 void createListChild(HeaderChild &HC) {
     HC.first = NULL;
     HC.Last = NULL;
@@ -34,16 +35,3 @@ void insertLastChild(HeaderChild &HC, adrChild C) {
     
 }
 
-
-int countBook(HeaderChild HC){
-    int i;
-    adrChild P;
-    P = HC.first;
-    while (P != nullptr){
-        i++;
-        P = P->next;
-    }
-    return i;
-
-
-}

@@ -1,6 +1,6 @@
+#include "book.h"
+#include "author.h"
 #include "relation.h"
-#include "author.h" 
-
 adrRelation alokasiRelation(adrChild C) {
     adrRelation R = new ElmRelation;
     R->BookRelation = C;

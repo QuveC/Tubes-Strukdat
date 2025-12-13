@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 struct infotype_buku {
@@ -29,5 +30,4 @@ void insertLastChild(HeaderChild &HC, adrChild C);
 adrChild searchBuku(HeaderChild HC, string judulBuku);
 int countBook(HeaderChild HC);
 
-
-#endif 
+#endif

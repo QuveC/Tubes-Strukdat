@@ -1,5 +1,6 @@
+#include "book.h"
 #include "author.h"
-
+#include "relation.h"
 void createListParent(HeaderParent &HP) {
     HP.First = NULL;
     HP.Last = NULL;
@@ -113,4 +114,37 @@ void deletePenulis(HeaderParent &HP, infotype_penulis namaPenulis) {
 
     delete P;
     cout << "Penulis " << namaPenulis << " beserta seluruh relasi bukunya berhasil dihapus." << endl;
+}
+
+
+
+int countBook(adrParent HC){
+    adrRelation B = HC->firstRelation;
+    int count = 0;
+    while (!B) {
+        count++;
+        B = B->next;
+    }
+    return count;
+}
+
+
+
+
+void topThree(HeaderParent HP){
+    adrParent top1, top2, top3, P;
+    top1 = HP.First;
+    top2 = HP.First;
+    top3 = HP.First;
+    P = top1->next;
+
+    while(!P){
+        if (countBook(top1) < countBook(P)) {
+        top3 = top2;
+        top2 = top1;
+        top1 = P;
+        }
+        P = P->next;
+    }
+    cout << top1->info;
 }

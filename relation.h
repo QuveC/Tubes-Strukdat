@@ -1,9 +1,10 @@
 #ifndef RELATION_H_INCLUDED
 #define RELATION_H_INCLUDED
 
-#include "BOOK.H"
-#include <iostream>
+#include "book.h" 
+
 using namespace std;
+
 
 typedef struct ElmParent *adrParent;
 
@@ -15,8 +16,9 @@ struct ElmRelation {
     adrRelation prev;
 };
 
+// Prototype
 adrRelation alokasiRelation(adrChild C);
 void tambahRelasi(adrParent P, adrChild C);
 void deleteRelasi(adrParent P, string judulBuku);
 
-#endif // RELATION_H_INCLUDED
+#endif
