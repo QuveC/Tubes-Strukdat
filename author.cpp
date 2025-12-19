@@ -116,8 +116,6 @@ int countBook(adrParent HC){
 }
 
 
-
-
 void topThree(HeaderParent HP){
     adrParent top1, top2, top3, P;
     top1 = HP.First;

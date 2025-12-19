@@ -19,7 +19,38 @@ int main() {
     
     adrParent P;
     adrChild C;
-while (true) {
+
+    insertLastParent(HP, alokasiParent("J.K._Rowling"));
+    insertLastParent(HP, alokasiParent("Tere_Liye"));
+    insertLastParent(HP, alokasiParent("Raditya_Dika"));
+
+    infotype_buku b1; b1.judul="Harry_Potter_1"; b1.tahunTerbit="1997"; b1.kategori="Fantasy";
+    insertLastChild(HC, alokasiChild(b1));
+
+    infotype_buku b2; b2.judul="Harry_Potter_2"; b2.tahunTerbit="1998"; b2.kategori="Fantasy";
+    insertLastChild(HC, alokasiChild(b2));
+
+    infotype_buku b3; b3.judul="Harry_Potter_3"; b3.tahunTerbit="1999"; b3.kategori="Fantasy";
+    insertLastChild(HC, alokasiChild(b3));
+
+    infotype_buku b4; b4.judul="Bumi"; b4.tahunTerbit="2014"; b4.kategori="Fiksi";
+    insertLastChild(HC, alokasiChild(b4));
+
+    infotype_buku b5; b5.judul="Bulan"; b5.tahunTerbit="2015"; b5.kategori="Fiksi";
+    insertLastChild(HC, alokasiChild(b5));
+
+    infotype_buku b6; b6.judul="Kambing_Jantan"; b6.tahunTerbit="2005"; b6.kategori="Komedi";
+    insertLastChild(HC, alokasiChild(b6));
+
+    tambahRelasi(searchPenulis(HP, "J.K._Rowling"), searchBuku(HC, "Harry_Potter_1"));
+    tambahRelasi(searchPenulis(HP, "J.K._Rowling"), searchBuku(HC, "Harry_Potter_2"));
+    tambahRelasi(searchPenulis(HP, "J.K._Rowling"), searchBuku(HC, "Harry_Potter_3"));
+    tambahRelasi(searchPenulis(HP, "Tere_Liye"), searchBuku(HC, "Bumi"));
+    tambahRelasi(searchPenulis(HP, "Tere_Liye"), searchBuku(HC, "Bulan"));
+    tambahRelasi(searchPenulis(HP, "Raditya_Dika"), searchBuku(HC, "Kambing_Jantan"));
+  
+   
+     while (true) {
         cout << "\n+==========================================+" << endl;
         cout << "| NO |       APLIKASI PERPUSTAKAAN         |" << endl;
         cout << "+====+=====================================+" << endl;
@@ -48,9 +79,12 @@ while (true) {
                 break;
 
             case 2:
-                cout << "Judul Buku: "; cin >> judulBuku;
-                cout << "Tahun: "; cin >> tahun;
-                cout << "Kategori: "; cin >> kategori;
+                cout << "Judul Buku: "; 
+                cin >> judulBuku;
+                cout << "Tahun: "; 
+                cin >> tahun;
+                cout << "Kategori: "; 
+                cin >> kategori;
 
                 {
                     infotype_buku dataBuku;
@@ -78,7 +112,8 @@ while (true) {
                 break;
 
             case 5:
-                cout << "Nama Penulis: "; cin >> namaPenulis;
+                cout << "Nama Penulis: "; 
+                cin >> namaPenulis;
                 tampilkanBukuPenulis(HP, namaPenulis);
                 break;
 
