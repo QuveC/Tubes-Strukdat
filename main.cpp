@@ -19,6 +19,7 @@ int main() {
     
     adrParent P;
     adrChild C;
+while (true) {
         cout << "\n+==========================================+" << endl;
         cout << "| NO |       APLIKASI PERPUSTAKAAN         |" << endl;
         cout << "+====+=====================================+" << endl;
@@ -36,84 +37,78 @@ int main() {
         cout << "| 0  | Keluar                              |" << endl;
         cout << "+==========================================+" << endl;
         cout << "Masukan Pilihan: ";
-    cin >> pilihan;
+        cin >> pilihan;
 
-    switch (pilihan) {
-    case 1:
-        cout << "Nama Penulis: ";
-        cin >> namaPenulis;
-        P = alokasiParent(namaPenulis);
-        insertLastParent(HP, P);
-        break;
+        switch (pilihan) {
+            case 1:
+                cout << "Nama Penulis: ";
+                cin >> namaPenulis;
+                P = alokasiParent(namaPenulis);
+                insertLastParent(HP, P);
+                break;
 
-    case 2:
-        { 
-            cout << "Judul Buku: "; 
-            cin >> judulBuku;
-            cout << "Tahun: "; 
-            cin >> tahun;
-            cout << "Kategori: "; 
-            cin >> kategori;
+            case 2:
+                cout << "Judul Buku: "; cin >> judulBuku;
+                cout << "Tahun: "; cin >> tahun;
+                cout << "Kategori: "; cin >> kategori;
 
-            infotype_buku dataBuku;
-            dataBuku.judul = judulBuku;
-            dataBuku.tahunTerbit = tahun;
-            dataBuku.kategori = kategori;
+                {
+                    infotype_buku dataBuku;
+                    dataBuku.judul = judulBuku;
+                    dataBuku.tahunTerbit = tahun;
+                    dataBuku.kategori = kategori;
 
-            C = alokasiChild(dataBuku);
-            insertLastChild(HC, C);
+                    C = alokasiChild(dataBuku);
+                    insertLastChild(HC, C);
+                }
+                break;
+
+            case 3:
+                cout << "Nama Penulis: "; cin >> namaPenulis;
+                cout << "Judul Buku: "; cin >> judulBuku;
+                P = searchPenulis(HP, namaPenulis);
+                C = searchBuku(HC, judulBuku);
+                if (P != NULL && C != NULL) {
+                    tambahRelasi(P, C);
+                }
+                break;
+
+            case 4:
+                tampilkanSemua(HP, HC);
+                break;
+
+            case 5:
+                cout << "Nama Penulis: "; cin >> namaPenulis;
+                tampilkanBukuPenulis(HP, namaPenulis);
+                break;
+
+            case 6:
+                cout << "Hapus Penulis: "; cin >> namaPenulis;
+                deletePenulis(HP, namaPenulis);
+                break;
+
+            case 7:
+                cout << "Nama Penulis: "; cin >> namaPenulis;
+                cout << "Judul Buku: "; cin >> judulBuku;
+                P = searchPenulis(HP, namaPenulis);
+                if (P != NULL) {
+                    deleteRelasi(P, judulBuku);
+                }
+                break;
+
+            case 8:
+                topThree(HP);
+                break;
+
+            case 0:
+                cout << "Program selesai.\n";
+                return 0;
+
+            default:
+                cout << "Pilihan salah." << endl;
         }
-        break;
-
-    case 3:
-        cout << "Nama Penulis: "; 
-        cin >> namaPenulis;
-        cout << "Judul Buku: "; 
-        cin >> judulBuku;
-        P = searchPenulis(HP, namaPenulis);
-        C = searchBuku(HC, judulBuku);
-        if (P != NULL && C != NULL) {
-            tambahRelasi(P, C);
-        }
-        break;
-
-    case 4:
-        tampilkanSemua(HP, HC);
-        break;
-
-    case 5:
-        cout << "Nama Penulis: "; 
-        cin >> namaPenulis;
-        tampilkanBukuPenulis(HP, namaPenulis);
-        break;
-
-    case 6:
-        cout << "Hapus Penulis: "; 
-        cin >> namaPenulis;
-        deletePenulis(HP, namaPenulis);
-        break;
-
-    case 7:
-        cout << "Nama Penulis: "; 
-        cin >> namaPenulis;
-        cout << "Judul Buku: ";
-         cin >> judulBuku;
-        P = searchPenulis(HP, namaPenulis);
-        if (P != NULL) {
-            deleteRelasi(P, judulBuku);
-        }
-        break;
-
-    case 8:
-        topThree(HP);
-        break;
-
-    case 0:
-        return 0;
-
-    default:
-        cout << "Pilihan salah." << endl;
     }
 
     return 0;
 }
+   
