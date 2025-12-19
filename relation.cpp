@@ -1,6 +1,8 @@
-#include "book.h"
-#include "author.h"
 #include "relation.h"
+#include "author.h"
+
+using namespace std;
+
 adrRelation alokasiRelation(adrChild C) {
     adrRelation R = new ElmRelation;
     R->BookRelation = C;
@@ -19,16 +21,15 @@ void tambahRelasi(adrParent P, adrChild C) {
         while (LastR->next != NULL) {
             LastR = LastR->next;
         }
-
         LastR->next = R;
         R->prev = LastR;
     }
-    cout << "Relasi antara penulis " << P->info << " dan buku " << C->info.judul << " berhasil ditambahkan." << endl;
+    cout << "Relasi berhasil ditambahkan." << endl;
 }
 
 void deleteRelasi(adrParent P, string judulBuku) {
     if (P == NULL || P->firstRelation == NULL) {
-        cout << "Penulis atau List Relasi kosong." << endl;
+        cout << "List Relasi kosong." << endl;
         return;
     }
 
@@ -39,7 +40,7 @@ void deleteRelasi(adrParent P, string judulBuku) {
     }
 
     if (q == NULL) {
-        cout << "Buku dengan judul " << judulBuku << " tidak ditemukan pada penulis " << P->info << "." << endl;
+        cout << "Buku tidak ditemukan pada penulis ini." << endl;
         return;
     }
 
@@ -55,6 +56,8 @@ void deleteRelasi(adrParent P, string judulBuku) {
         }
     }
 
-    delete q;
-    cout << "Relasi buku " << judulBuku << " berhasil dihapus dari penulis " << P->info << "." << endl;
+    q->next = NULL;
+    q->prev = NULL;
+    
+    cout << "Relasi buku berhasil dilepas (disconnect)." << endl;
 }

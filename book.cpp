@@ -1,6 +1,5 @@
 #include "book.h"
 
-
 void createListChild(HeaderChild &HC) {
     HC.first = NULL;
     HC.Last = NULL;
@@ -32,6 +31,4 @@ void insertLastChild(HeaderChild &HC, adrChild C) {
         HC.Last->next = C;
         HC.Last = C;
     }
-    
 }
-

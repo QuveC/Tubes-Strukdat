@@ -16,7 +16,6 @@ struct ElmRelation {
     adrRelation prev;
 };
 
-// Prototype
 adrRelation alokasiRelation(adrChild C);
 void tambahRelasi(adrParent P, adrChild C);
 void deleteRelasi(adrParent P, string judulBuku);
