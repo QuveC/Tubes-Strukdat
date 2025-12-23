@@ -29,5 +29,7 @@ adrChild alokasiChild(infotype_buku infoBuku);
 void insertLastChild(HeaderChild &HC, adrChild C);
 adrChild searchBuku(HeaderChild HC, string judulBuku);
 int countBook(HeaderChild HC);
+void displayBook(HeaderChild HC);
+
 
 #endif

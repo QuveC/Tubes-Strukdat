@@ -32,5 +32,7 @@ void deletePenulis(HeaderParent &HP, infotype_penulis namaPenulis);
 void tampilkanBukuPenulis(HeaderParent HP, infotype_penulis namaPenulis);
 void tampilkanSemua(HeaderParent HP, HeaderChild HC);
 void topThree(HeaderParent HP);
+void bottomthree(HeaderParent HP);
+void displayWriter(HeaderParent HP);
 
 #endif

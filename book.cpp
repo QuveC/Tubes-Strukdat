@@ -32,3 +32,22 @@ void insertLastChild(HeaderChild &HC, adrChild C) {
         HC.Last = C;
     }
 }
+
+void displayBook(HeaderChild HC){
+    if(HC.first == nullptr){
+        cout<<"kosong"<<endl;
+    }
+
+    adrChild C = HC.first;
+    int i = 1;
+
+    while (C != nullptr){
+        cout<<i<< " . " << C->info.judul<<endl;
+        cout<<i<< " . " << C->info.kategori<<endl;
+        cout<<i<< " . " << C->info.tahunTerbit<<endl;
+        C = C->next;
+        i++;
+    }
+    cout<<"========================================================="<<endl;
+
+}
