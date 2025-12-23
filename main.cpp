@@ -25,27 +25,27 @@ int main() {
     insertLastParent(HP, alokasiParent("Raditya_Dika"));
 
     infotype_buku b1;
-    b1.judul="Harry_Potter_1"; b1.tahunTerbit="1997"; b1.kategori="Fantasy";
+    b1.judul="Harry_Potter_1"; b1.tahunTerbit=1997; b1.kategori="Fantasy";
     insertLastChild(HC, alokasiChild(b1));
 
     infotype_buku b2;
-    b2.judul="Harry_Potter_2"; b2.tahunTerbit="1998"; b2.kategori="Fantasy";
+    b2.judul="Harry_Potter_2"; b2.tahunTerbit=1998; b2.kategori="Fantasy";
     insertLastChild(HC, alokasiChild(b2));
 
     infotype_buku b3;
-    b3.judul="Harry_Potter_3"; b3.tahunTerbit="1999"; b3.kategori="Fantasy";
+    b3.judul="Harry_Potter_3"; b3.tahunTerbit=1999; b3.kategori="Fantasy";
     insertLastChild(HC, alokasiChild(b3));
 
     infotype_buku b4; 
-    b4.judul="Bumi"; b4.tahunTerbit="2014"; b4.kategori="Fiksi";
+    b4.judul="Bumi"; b4.tahunTerbit=2014; b4.kategori="Fiksi";
     insertLastChild(HC, alokasiChild(b4));
 
     infotype_buku b5; 
-    b5.judul="Bulan"; b5.tahunTerbit="2015"; b5.kategori="Fiksi";
+    b5.judul="Bulan"; b5.tahunTerbit=2015; b5.kategori="Fiksi";
     insertLastChild(HC, alokasiChild(b5));
 
     infotype_buku b6; 
-    b6.judul="Kambing_Jantan"; b6.tahunTerbit="2005"; b6.kategori="Komedi";
+    b6.judul="Kambing_Jantan"; b6.tahunTerbit=2005; b6.kategori="Komedi";
     insertLastChild(HC, alokasiChild(b6));
 
     tambahRelasi(searchPenulis(HP, "J.K._Rowling"), searchBuku(HC, "Harry_Potter_1"));
@@ -69,7 +69,7 @@ int main() {
         cout << "| 6  | Tampilkan Penulis                   |" << endl;
         cout << "| 7  | Cari Buku Penulis                   |" << endl;
         cout << "| 8  | Tampilkan Top 3 Penulis             |" << endl;
-        cout << "| 9  | Tampilkan 3 Penulis terendah       |" << endl;
+        cout << "| 9  | Tampilkan 3 Penulis terendah        |" << endl;
         cout << "+----+-------------------------------------+" << endl;
         cout << "| 10  | Hapus Penulis                      |" << endl;
         cout << "| 11  | Hapus Relasi Buku                  |" << endl;
@@ -86,9 +86,12 @@ int main() {
                 break;
 
             case 2:
-                cout << "Judul Buku: "; cin >> judulBuku;
-                cout << "Tahun: "; cin >> tahun;
-                cout << "Kategori: "; cin >> kategori;
+                cout << "Judul Buku: "; 
+                cin >> judulBuku;
+                cout << "Tahun: "; 
+                cin >> tahun;
+                cout << "Kategori: "; 
+                cin >> kategori;
                 {
                     infotype_buku dataBuku;
                     dataBuku.judul = judulBuku;

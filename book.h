@@ -8,7 +8,7 @@ using namespace std;
 
 struct infotype_buku {
     string judul;
-    string tahunTerbit;
+    int tahunTerbit;
     string kategori;
 };
 
