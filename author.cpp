@@ -162,7 +162,7 @@ void bottomthree(HeaderParent HP){
         adrParent top1 = NULL, top2 = NULL, top3 = NULL;
         adrParent P = HP.First;
     
-    cout << countBook(P) << endl;
+        cout << countBook(P) << endl;
 
         while (P != NULL) {
             int count = countBook(P);

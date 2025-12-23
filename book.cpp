@@ -42,9 +42,7 @@ void displayBook(HeaderChild HC){
     int i = 1;
 
     while (C != nullptr){
-        cout<<i<< " . " << C->info.judul<<endl;
-        cout<<i<< " . " << C->info.kategori<<endl;
-        cout<<i<< " . " << C->info.tahunTerbit<<endl;
+        cout<<i<< " . " << C->info.judul <<" ( "<< C->info.tahunTerbit << " )" <<endl;
         C = C->next;
         i++;
     }
