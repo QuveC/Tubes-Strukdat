@@ -199,7 +199,7 @@ void displayWriter(HeaderParent HP){
     int i = 1;
 
     while (P != nullptr){
-        cout<<i<< " . " << P->info<<endl;
+        cout<<i<< " . " << P->info<<" ( Jumlah Buku : " << countBook(P)<<" )"<<endl;
         P = P->next;
         i++;
     }
