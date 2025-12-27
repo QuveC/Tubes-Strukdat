@@ -2,32 +2,32 @@
 #include "relation.h"
 
 void createListParent(HeaderParent &HP) {
-    HP.First = NULL;
-    HP.Last = NULL;
+    HP.First = nullptr;
+    HP.Last = nullptr;
 }
 
 adrParent alokasiParent(infotype_penulis infoPenulis) {
     adrParent P = new ElmParent;
     P->info = infoPenulis;
-    P->next = NULL; 
-    P->prev = NULL;
-    P->firstRelation = NULL;
+    P->next = nullptr; 
+    P->prev = nullptr;
+    P->firstRelation = nullptr;
     return P;
 }
 
 adrParent searchPenulis(HeaderParent HP, infotype_penulis namaPenulis) {
     adrParent P = HP.First;
-    while (P != NULL) {
+    while (P != nullptr) {
         if (P->info == namaPenulis) {
             return P;
         }
         P = P->next;
     }
-    return NULL;
+    return nullptr;
 }
 
 void insertLastParent(HeaderParent &HP, adrParent P) {
-    if (HP.First == NULL) {
+    if (HP.First == nullptr) {
         HP.First = P;
         HP.Last = P;
     } else {
@@ -40,7 +40,7 @@ void insertLastParent(HeaderParent &HP, adrParent P) {
 void tampilkanBukuPenulis(HeaderParent HP, infotype_penulis namaPenulis) {
     adrParent P = searchPenulis(HP, namaPenulis);
 
-    if (P == NULL) {
+    if (P == nullptr) {
         cout << "Penulis " << namaPenulis << " tidak ditemukan." << endl;
         return;
     }
@@ -49,12 +49,12 @@ void tampilkanBukuPenulis(HeaderParent HP, infotype_penulis namaPenulis) {
     cout << "Penulis: " << P->info << endl;
 
     adrRelation R = P->firstRelation;
-    if (R == NULL) {
+    if (R == nullptr) {
         cout << "   (Belum ada buku)" << endl;
     } 
     
     int i = 1;
-    while (R != NULL) {
+    while (R != nullptr) {
         cout << "   " << i << ". " << R->BookRelation->info.judul
              << " (" << R->BookRelation->info.tahunTerbit << ")" << endl;
         R = R->next;
@@ -66,43 +66,55 @@ void tampilkanBukuPenulis(HeaderParent HP, infotype_penulis namaPenulis) {
 void tampilkanSemua(HeaderParent HP, HeaderChild HC) {
     cout << "\n=== DAFTAR SELURUH DATA ===" << endl;
     adrParent P = HP.First;
-    if (P == NULL) {
+    if (P == nullptr) {
         cout << "List Penulis kosong." << endl;
         return;
     }
-    while (P != NULL) {
+    while (P != nullptr) {
         tampilkanBukuPenulis(HP, P->info);
         P = P->next;
     }
 }
 
+bool searchAuthor(HeaderParent HC){
+
+}
 void deletePenulis(HeaderParent &HP, infotype_penulis namaPenulis) {
-    adrParent P = searchPenulis(HP, namaPenulis);
-    if (P == NULL) {
-        cout << "Penulis tidak ditemukan." << endl;
-        return;
-    }
+    adrParent P = searchPenulis(HP, namaPenulis); 
+    
+    if (P != nullptr) {
+        P->firstRelation = nullptr; 
+        
+        if (P == HP.First) {
+            if (HP.First == HP.Last) { 
+                HP.First = nullptr;
+                HP.Last = nullptr;
+            } else {
+                HP.First = P->next;
+                HP.First->prev = nullptr;
+                P->next = nullptr;
+            }
 
-    P->firstRelation = NULL; 
+        } else if (P == HP.Last) {
+            HP.Last = P->prev;
+            HP.Last->next = nullptr;
+            P->prev = nullptr; 
 
-    if (P == HP.First && P == HP.Last) {
-        HP.First = NULL;
-        HP.Last = NULL;
-    } else if (P == HP.First) {
-        HP.First = P->next;
-        HP.First->prev = NULL;
-    } else if (P == HP.Last) {
-        HP.Last = P->prev;
-        HP.Last->next = NULL;
+        } else {
+            adrParent pro = P->prev; 
+            adrParent nextNode = P->next; 
+            pro->next = nextNode;
+            nextNode->prev = pro;
+            
+            P->next = nullptr;
+            P->prev = nullptr;
+        }
+
+        cout << "Penulis " << namaPenulis << " berhasil dihapus dari list." << endl;
+
     } else {
-        P->prev->next = P->next;
-        P->next->prev = P->prev;
+        cout << "Penulis tidak ditemukan." << endl;
     }
-
-    P->next = NULL;
-    P->prev = NULL;
-
-    cout << "Penulis berhasil dihapus (dilepas dari list)." << endl;
 }
 
 
@@ -117,29 +129,29 @@ int countBook(adrParent HC){
 }
 
 void topThree(HeaderParent HP){
-    if (HP.First == NULL) {
+    if (HP.First == nullptr) {
             cout << "Tidak ada penulis." << endl;
             return;
         }
 
-        adrParent top1 = NULL, top2 = NULL, top3 = NULL;
+        adrParent top1 = nullptr, top2 = nullptr, top3 = nullptr;
         adrParent P = HP.First;
     
     cout << countBook(P) << endl;
 
-        while (P != NULL) {
+        while (P != nullptr) {
             int count = countBook(P);
 
-            if (top1 == NULL || count > countBook(top1)) {
+            if (top1 == nullptr || count > countBook(top1)) {
                 top3 = top2;
                 top2 = top1;
                 top1 = P;
             }
-            else if (top2 == NULL || count > countBook(top2)) {
+            else if (top2 == nullptr || count > countBook(top2)) {
                 top3 = top2;
                 top2 = P;
             }
-            else if (top3 == NULL || count > countBook(top3)) {
+            else if (top3 == nullptr || count > countBook(top3)) {
                 top3 = P;
             }
 
@@ -154,29 +166,29 @@ void topThree(HeaderParent HP){
 }
 
 void bottomthree(HeaderParent HP){
-    if (HP.First == NULL) {
+    if (HP.First == nullptr) {
             cout << "Tidak ada penulis." << endl;
             return;
         }
 
-        adrParent top1 = NULL, top2 = NULL, top3 = NULL;
+        adrParent top1 = nullptr, top2 = nullptr, top3 = nullptr;
         adrParent P = HP.First;
     
         cout << countBook(P) << endl;
 
-        while (P != NULL) {
+        while (P != nullptr) {
             int count = countBook(P);
 
-            if (top1 == NULL || count < countBook(top1)) {
+            if (top1 == nullptr || count < countBook(top1)) {
                 top3 = top2;
                 top2 = top1;
                 top1 = P;
             }
-            else if (top2 == NULL || count < countBook(top2)) {
+            else if (top2 == nullptr || count < countBook(top2)) {
                 top3 = top2;
                 top2 = P;
             }
-            else if (top3 == NULL || count < countBook(top3)) {
+            else if (top3 == nullptr || count < countBook(top3)) {
                 top3 = P;
             }
 
