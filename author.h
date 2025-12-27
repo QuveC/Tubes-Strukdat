@@ -10,8 +10,6 @@ using namespace std;
 
 typedef string infotype_penulis;
 
-typedef struct ElmParent *adrParent;
-
 struct ElmParent {
     infotype_penulis info;
     adrParent next;
@@ -32,7 +30,8 @@ void deletePenulis(HeaderParent &HP, infotype_penulis namaPenulis);
 void tampilkanBukuPenulis(HeaderParent HP, infotype_penulis namaPenulis);
 void tampilkanSemua(HeaderParent HP, HeaderChild HC);
 void topThree(HeaderParent HP);
-void bottomthree(HeaderParent HP);
+void bottomthree(HeaderParent HP); 
 void displayWriter(HeaderParent HP);
+int countBook(adrParent P);
 
 #endif

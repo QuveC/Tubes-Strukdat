@@ -1,6 +1,5 @@
 #include "relation.h"
-#include "author.h"
-
+#include "author.h" 
 using namespace std;
 
 adrRelation alokasiRelation(adrChild C) {
@@ -55,9 +54,8 @@ void deleteRelasi(adrParent P, string judulBuku) {
             q->next->prev = q->prev;
         }
     }
-
     q->next = NULL;
     q->prev = NULL;
-    
-    cout << "Relasi buku berhasil dilepas (disconnect)." << endl;
+    q->BookRelation = NULL;    
+    cout << "Relasi buku berhasil dilepas." << endl;
 }

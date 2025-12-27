@@ -5,15 +5,13 @@
 
 using namespace std;
 
-
 typedef struct ElmParent *adrParent;
-
 typedef struct ElmRelation *adrRelation;
 
 struct ElmRelation {
     adrChild BookRelation;
     adrRelation next;
-    adrRelation prev;
+    adrRelation prev; 
 };
 
 adrRelation alokasiRelation(adrChild C);

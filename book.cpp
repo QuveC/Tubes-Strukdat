@@ -2,7 +2,6 @@
 
 void createListChild(HeaderChild &HC) {
     HC.first = NULL;
-    HC.Last = NULL;
 }
 
 adrChild alokasiChild(infotype_buku infoBuku) {
@@ -26,26 +25,42 @@ adrChild searchBuku(HeaderChild HC, string judulBuku) {
 void insertLastChild(HeaderChild &HC, adrChild C) {
     if (HC.first == NULL) {
         HC.first = C;
-        HC.Last = C;
     } else {
-        HC.Last->next = C;
-        HC.Last = C;
+        adrChild Q = HC.first; 
+        while (Q->next != NULL) {
+            Q = Q->next;
+        }
+        
+        Q->next = C;
     }
 }
 
 void displayBook(HeaderChild HC){
-    if(HC.first == nullptr){
-        cout<<"kosong"<<endl;
+    cout << "\n=== DAFTAR SEMUA BUKU ===" << endl;
+    if(HC.first == NULL){
+        cout << "(Kosong)" << endl;
+        return;
     }
 
     adrChild C = HC.first;
     int i = 1;
 
-    while (C != nullptr){
-        cout<<i<< " . " << C->info.judul <<" ( "<< C->info.tahunTerbit << " )" <<endl;
+    while (C != NULL){
+        cout << i << ". " << C->info.judul 
+             << " (" << C->info.tahunTerbit << ") - " 
+             << C->info.kategori << endl;
         C = C->next;
         i++;
     }
-    cout<<"========================================================="<<endl;
+    cout << "=========================================================" << endl;
+}
 
+int countBook(HeaderChild HC) {
+    int count = 0;
+    adrChild C = HC.first;
+    while(C != NULL) {
+        count++;
+        C = C->next;
+    }
+    return count;
 }

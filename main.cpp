@@ -71,8 +71,11 @@ int main() {
         cout << "| 8  | Tampilkan Top 3 Penulis             |" << endl;
         cout << "| 9  | Tampilkan 3 Penulis terendah        |" << endl;
         cout << "+----+-------------------------------------+" << endl;
-        cout << "| 10  | Hapus Penulis                      |" << endl;
-        cout << "| 11  | Hapus Relasi Buku                  |" << endl;
+        cout << "| 10 | Hapus Penulis                       |" << endl;
+        cout << "| 11 | Hapus Relasi Buku                   |" << endl;
+        cout << "+----+-------------------------------------+" << endl;
+        cout << "| 12 | Cari Data Penulis (Check)           |" << endl;
+        cout << "| 13 | Hitung Jumlah Buku Penulis          |" << endl;
         cout << "+----+-------------------------------------+" << endl;
         cout << "| 0  | Keluar                              |" << endl;
         cout << "+==========================================+" << endl;
@@ -81,7 +84,8 @@ int main() {
 
       switch (pilihan) {
             case 1:
-                cout << "Nama Penulis: "; cin >> namaPenulis;
+                cout << "Nama Penulis: "; 
+                cin >> namaPenulis;
                 insertLastParent(HP, alokasiParent(namaPenulis));
                 break;
 
@@ -161,6 +165,22 @@ int main() {
                     cout << "Penulis tidak ditemukan." << endl;
                 }
                 break;
+            
+            case 12: 
+                cout << "Cari Nama Penulis: ";
+                cin >> namaPenulis;
+                P = searchPenulis(HP, namaPenulis);
+                if (P != NULL) cout << ">> PENULIS DITEMUKAN: " << P->info << endl;
+                else cout << ">> PENULIS TIDAK DITEMUKAN." << endl;
+                break;
+
+            case 13: 
+                cout << "Nama Penulis: "; 
+                cin >> namaPenulis;
+                P = searchPenulis(HP, namaPenulis);
+                if (P != NULL) cout << ">> Jumlah Buku " << P->info << ": " << countBook(P) << endl;
+                else cout << ">> Penulis tidak ditemukan." << endl;
+                break;
 
             case 0:
                 cout << "Program selesai. Sampai jumpa!\n";
@@ -173,4 +193,3 @@ int main() {
 
     return 0;
 }
-   
