@@ -74,7 +74,7 @@ int main() {
         cout << "| 10 | Hapus Penulis                       |" << endl;
         cout << "| 11 | Hapus Relasi Buku                   |" << endl;
         cout << "+----+-------------------------------------+" << endl;
-        cout << "| 12 | Cari Data Penulis (Check)           |" << endl;
+        cout << "| 12 | Cari Data Penulis                   |" << endl;
         cout << "| 13 | Hitung Jumlah Buku Penulis          |" << endl;
         cout << "+----+-------------------------------------+" << endl;
         cout << "| 0  | Keluar                              |" << endl;
