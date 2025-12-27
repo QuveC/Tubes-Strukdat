@@ -150,7 +150,7 @@ int main() {
             case 10:
                 cout << "Nama Penulis yang akan dihapus: "; 
                 cin >> namaPenulis;
-                deletePenulis(HP, namaPenulis);
+                deletePenulis(HP, HC, namaPenulis);     
                 break;
 
             case 11:

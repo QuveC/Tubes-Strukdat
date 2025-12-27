@@ -26,7 +26,7 @@ void createListParent(HeaderParent &HP);
 adrParent alokasiParent(infotype_penulis infoPenulis);
 void insertLastParent(HeaderParent &HP, adrParent P);
 adrParent searchPenulis(HeaderParent HP, infotype_penulis namaPenulis);
-void deletePenulis(HeaderParent &HP, infotype_penulis namaPenulis);
+void deletePenulis(HeaderParent &HP, HeaderChild &HC, infotype_penulis namaPenulis);
 void tampilkanBukuPenulis(HeaderParent HP, infotype_penulis namaPenulis);
 void tampilkanSemua(HeaderParent HP, HeaderChild HC);
 void topThree(HeaderParent HP);
